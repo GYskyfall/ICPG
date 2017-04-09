@@ -7,7 +7,7 @@ function [cost] = icpg_cost2(args)
     constraints = args{6};
     cost = icpg_cost(target_state,weights,guidance_params,current_state,body_params);
     if guidance_params{1} < 0
-        cost = cost + 1000.*guidance_params{1}.^2;
+        cost = cost + 1e+5.*guidance_params{1}.^2;
     elseif guidance_params{1} > constraints{1}
         cost = cost + 1e+5.*(guidance_params{1}-constraints{1}).^3;
     end
@@ -18,7 +18,7 @@ function [cost] = icpg_cost2(args)
     end
     if guidance_params{3} < 0.5
         cost = cost + 1e+5.*(guidance_params{3}-0.5).^4;
-    elseif guidance_params{1} > constraints{3}
+    elseif guidance_params{3} > constraints{3}
         cost = cost + 1e+8.*(guidance_params{3}-constraints{3}).^4 + 1e+9.*(guidance_params{3}-constraints{3}).^2;
     end
 end
