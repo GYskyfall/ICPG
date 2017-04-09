@@ -23,7 +23,7 @@ function [final_state] = icpg_eval(guidance_params,current_state,body_params)
 %             xvel: Final horizontal velocity. Measured in m*s^-1.
 %             yvel: Final vertical velocity. Measured in m*s^-1.
 %             xpos: Final downrange distance from current position. Measured in m*s^-1.
-%             ypox: Final height over ground. Measured in meters.
+%             ypos: Final height over ground. Measured in meters.
 %         
 %     EXAMPLE:
 %         guidance_params = {350,22,0.95};
