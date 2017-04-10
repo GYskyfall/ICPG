@@ -47,7 +47,7 @@ function [optim_param] = icpg_optim(target_state,weights,current_state,body_para
         
         grad = -learning_rate.*(momentum_fac.*old_grad + grad);
 
-        guidance_params = num2cell(cell2mat(guidance_params) + grad.*cell2mat(guidance_params));
+        guidance_params = num2cell(cell2mat(guidance_params) + grad);
         step_size = norm(cell2mat(guidance_params)-cell2mat(old_guidance_params));
                 
         optim_param = guidance_params;        
